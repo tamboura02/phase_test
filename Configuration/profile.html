@@ -3,9 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue sur Console.log()</title>
+    <title>Mon Profile</title>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            min-height: 100vh;
+        }
+
+        /* Barre de navigation */
+        nav {
+            background: #1f2937;
+            color: white;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Conteneur principal */
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* En-tête profil */
+        .profile-header {
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .profile-header h2 {
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .profile-header p {
+            color: #6b7280;
+        }
+
+        /* Informations */
+        .information {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .info-box label {
+            display: block;
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .info-box p {
+            color: #111827;
+            font-weight: bold;
+        }
+
+        /* Boutons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .edit {
+            background: #2563eb;
+            color: white;
+        }
+
+        .password {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .logout {
+            background: #dc2626;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 650px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .information {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <p>FORMATION</p>
+
+    <!-- Navigation -->
+    <nav>
+        <h1>Mon Application</h1>
+
+        <div>
+            <a href="index.html">Accueil</a>
+            <a href="profile.html">Mon Profil</a>
+        </div>
+    </nav>
+
+    <!-- Contenu du profil -->
+    <main class="container">
+
+        <section class="profile-card">
+
+            <!-- En-tête -->
+            <div class="profile-header">
+
+                <div class="profile-photo">
+                    IT
+                </div>
+
+                <h2>IBRAHIM TAMBOURA</h2>
+                <p>UTILISATEUR</p>
+
+            </div>
+
+            <!-- Informations personnelles -->
+            <div class="information">
+
+                <div class="info-box">
+                    <label>Nom complet</label>
+                    <p>Ibrahim Tamboura</p>
+                </div>
+
+                <div class="info-box">
+                    <label>Lieu de Naissance</label>
+                    <p>soubré</p>
+                </div>
+                <div class="info-box">
+                    <label>Adresse e-mail</label>
+                    <p>ibrahim@email.com</p>
+                </div>
+
+                <div class="info-box">
+                    <label>Téléphone</label>
+                    <p>07 XX XX XX XX</p>
+                </div>
+
+                <div class="info-box">
+                    <label>Nom d'utilisateur</label>
+                    <p>tamboura_ib</p>
+                </div>
+
+                <div class="info-box">
+                    <label>Date d'inscription</label>
+                    <p>01 Octobre 2026</p>
+                </div>
+
+                <div class="info-box">
+                    <label>Statut</label>
+                    <p>Compte actif</p>
+                </div>
+
+            </div>
+
+            <!-- Boutons -->
+            <div class="buttons">
+
+                <button class="edit" onclick="modifierProfil()">
+                    ✏️ Modifier le profil
+                </button>
+
+                <button class="password" onclick="changerMotDePasse()">
+                    🔐 Changer le mot de passe
+                </button>
+
+                <button class="logout" onclick="deconnexion()">
+                    🚪 Déconnexion
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        function modifierProfil() {
+            alert("Fonction de modification du profil");
+        }
+
+        function changerMotDePasse() {
+            alert("Fonction de changement du mot de passe");
+        }
+
+        function deconnexion() {
+            let confirmation = confirm(
+                "Voulez-vous vraiment vous déconnecter ?"
+            );
+
+            if (confirmation) {
+                window.location.href = "index.html";
+            }
+        }
+
+    </script>
+
 </body>
 </html>
+
+
+    
